@@ -1,5 +1,11 @@
 ### CodePipeline Variables ###
 
+variable "bucket_name" {
+  description = "Bucket name"
+  type        = string
+  default     = "hrdimibucket2222"
+}
+
 variable "solution_name" {
   description = "Solution name used in the naming convention of codepipeline"
   type        = string

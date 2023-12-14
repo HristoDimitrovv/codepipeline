@@ -1,6 +1,6 @@
 #Create an S3 bucket
 resource "aws_s3_bucket" "s3" {
-  bucket = "hrdimibucket2222"
+  bucket = var.bucket_name
 }
 
 
