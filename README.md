@@ -3,6 +3,7 @@
 1. This repository contains Terraform code and configuration for setting up a Continuous Integration and Continuous Deployment (CI/CD) pipeline to deploy infrastructure using Terraform. 
 2. The pipeline is designed to deploy resources from a specific directory in a CodeCommit repository. 
 3. As part of the deployment a CodeCommit repository named "my-repo" is created (it is also hardcoded in the module directory path "codepipeline_codecommit/codepipeline.tf" on line number 27 ).
+4. An S3 bucket is created to which the name should be adjusted in the variables.tf file
 
 
 # Prerequisites #
