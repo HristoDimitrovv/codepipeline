@@ -1,0 +1,24 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing Terraform..."
+      - wget https://releases.hashicorp.com/terraform/${tf_version}/terraform_${tf_version}_linux_amd64.zip  # Example download link for Linux
+      - unzip terraform_${tf_version}_linux_amd64.zip -d /usr/local/bin  # Extract Terraform binary to a directory in PATH
+      - terraform --version  # Verify Terraform installation
+
+  pre_build:
+    commands:
+      - echo "Preparing for Terraform apply..."
+
+  build:
+    commands:
+      - cd ${solutions_source_path}  # Change to the directory where source code is fetched
+      - # Navigate to the directory containing Terraform files
+      - terraform init       # Initialize Terraform in the fetched source directory
+      - terraform apply -auto-approve  # Apply Terraform changes without manual confirmation
+
+  post_build:
+    commands:
+      - echo "Terraform apply completed."
