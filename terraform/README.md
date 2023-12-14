@@ -1,11 +1,11 @@
 # CI/CD Solution for Terraform Deployment #
 
-### This repository contains Terraform code and configuration for setting up a Continuous Integration and Continuous Deployment (CI/CD) pipeline to deploy infrastructure using Terraform. The pipeline is designed to deploy resources from a specific directory in a CodeCommit repository. As part of the deployment a CodeCommit repository named "my-repo" is created (it is also hardcoded in the module directory path "codepipeline_codecommit/codepipeline.tf" on line number 27 ).
+This repository contains Terraform code and configuration for setting up a Continuous Integration and Continuous Deployment (CI/CD) pipeline to deploy infrastructure using Terraform. The pipeline is designed to deploy resources from a specific directory in a CodeCommit repository. As part of the deployment a CodeCommit repository named "my-repo" is created (it is also hardcoded in the module directory path "codepipeline_codecommit/codepipeline.tf" on line number 27 ).
 
 
 # Prerequisites #
 
-### Before setting up the CI/CD pipeline, ensure the following prerequisites are met:
+Before setting up the CI/CD pipeline, ensure the following prerequisites are met:
 
 1. AWS account with appropriate permissions.
 2. Terraform installed (version 1.4.6).
@@ -14,7 +14,7 @@
 
 # Configuration #
 
-### The CI/CD pipeline is configured using the following Terraform variables in the terraform.tfvars file:
+The CI/CD pipeline is configured using the following Terraform variables in the terraform.tfvars file:
 ```hcl
 bucket_name: Bucket name for storing Terraform state files.
 solution_name: Solution name used in the naming convention of CodePipeline.
@@ -33,7 +33,7 @@ branch_name: Branch name for source code.
 
 # Pipeline Workflow ###
 
-### The CI/CD pipeline consists of the following stages:
+The CI/CD pipeline consists of the following stages:
 
 1. Source Stage (CodeCommit)
 This stage fetches the Terraform code from the specified directory in the CodeCommit repository.
