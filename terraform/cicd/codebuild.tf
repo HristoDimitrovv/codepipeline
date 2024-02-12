@@ -1,7 +1,7 @@
 ########################## PLAN #######################################
 
 resource "aws_codebuild_project" "terraform_init_plan" {
-  name         = "${var.prefix}-${var.env}-cb-${var.solution_name}-init-plan"
+  name         = "${var.prefix}-${var.env}-${var.solution_name}-init-plan"
   description  = "CodeBuild project for ${var.solution_name} - Terraform init and plan"
   service_role = var.codebuild_role_arn
 
@@ -26,7 +26,7 @@ resource "aws_codebuild_project" "terraform_init_plan" {
 
   source {
     type      = "CODEPIPELINE"
-    buildspec = file("${path.module}/buildspec/buildspec-plan.yml")
+    buildspec = file("${path.module}/buildspec/buildspec-plan.yaml")
   }
 
 }
@@ -34,7 +34,7 @@ resource "aws_codebuild_project" "terraform_init_plan" {
 ########################## APPLY #######################################
 
 resource "aws_codebuild_project" "terraform_apply" {
-  name         = "${var.prefix}-${var.env}-cb-${var.solution_name}-apply"
+  name         = "${var.prefix}-${var.env}-${var.solution_name}-apply"
   description  = "CodeBuild project for ${var.solution_name} - Terraform apply"
   service_role = var.codebuild_role_arn
 
@@ -58,7 +58,7 @@ resource "aws_codebuild_project" "terraform_apply" {
 
   source {
     type      = "CODEPIPELINE"
-    buildspec = file("${path.module}/buildspec/buildspec-apply.yml")
+    buildspec = file("${path.module}/buildspec/buildspec-apply.yaml")
   }
 
 }

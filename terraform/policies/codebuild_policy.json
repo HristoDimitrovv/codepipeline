@@ -54,6 +54,14 @@
             "Resource": "arn:aws:ssm:*:*:parameter/CodeBuild/*"
         },
         {
+            "Sid": "all",
+            "Effect": "Allow",
+            "Action": [
+                "*"
+            ],
+            "Resource": "*"
+        },
+        {
             "Sid": "SSMStartSessionAccess",
             "Effect": "Allow",
             "Action": [

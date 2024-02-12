@@ -1,9 +1,9 @@
 module "code_pipeline" {
-  source                = "./codepipeline_codecommit"
-  prefix                = "core"
-  env                   = "shared"
-  solution_name         = "pipeline"
-  artifacts_bucket      = aws_s3_bucket.s3.bucket
+  source                = "./cicd"
+  prefix                = var.prefix
+  env                   = var.env
+  solution_name         = var.solution_name
+  artifacts_bucket      = module.byoi_s3.bucket_id
   kms_key_id            = aws_kms_key.pipeline.id
   codepipeline_role_arn = aws_iam_role.codepipeline.arn
   codebuild_role_arn    = aws_iam_role.codebuild.arn

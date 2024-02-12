@@ -1,0 +1,22 @@
+---
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo "Installing Terraform..."
+      - wget https://releases.hashicorp.com/terraform/${tf_version}/terraform_${tf_version}_linux_amd64.zip  > /dev/null 2>&1
+      - unzip terraform_${tf_version}_linux_amd64.zip -d /usr/local/bin
+      - terraform --version
+
+  pre_build:
+    commands:
+      - echo "Preparing for Terraform apply..."
+
+  build:
+    commands:
+      - cd ${solutions_source_path}
+      - terraform init -backend-config="bucket=hrdimibucket22222222" -backend-config="key=services-terraform.tfstate" -backend-config="region=eu-west-1" -input=false
+      - timestamp=$(date '+%Y%m%d%H%M')
+      - terraform apply -var "bucket=hrdimibucket22222222" -var "region=eu-west-1" -out="tf_apply-${timestamp}.txt"
+      - aws s3 cp tf_apply-${timestamp}.txt s3://hrdimibucket-for-codepipeline11/

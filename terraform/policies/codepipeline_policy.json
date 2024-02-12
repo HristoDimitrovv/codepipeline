@@ -117,6 +117,27 @@
             ]
         },
         {
+            "Sid": "CodeStarConnectionsReadWriteAccess",
+            "Effect": "Allow",
+            "Action": [
+                "codestar-connections:CreateConnection",
+                "codestar-connections:DeleteConnection",
+                "codestar-connections:UpdateConnectionInstallation",
+                "codestar-connections:TagResource",
+                "codestar-connections:UntagResource",
+                "codestar-connections:ListConnections",
+                "codestar-connections:ListInstallationTargets",
+                "codestar-connections:ListTagsForResource",
+                "codestar-connections:GetConnection",
+                "codestar-connections:GetIndividualAccessToken",
+                "codestar-connections:GetInstallationUrl",
+                "codestar-connections:PassConnection",
+                "codestar-connections:StartOAuthHandshake",
+                "codestar-connections:UseConnection"
+            ],
+            "Resource": "arn:aws:codestar-connections:*:*:connection/*"
+        },
+        {
             "Sid": "CodeStarNotificationsReadWriteAccess",
             "Effect": "Allow",
             "Action": [

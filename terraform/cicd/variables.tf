@@ -10,11 +10,6 @@ variable "solution_name" {
   description = "Service name - iam, ec2, tableu"
 }
 
-variable "repo_name" {
-  description = "Name of the Codecommit Repository"
-  default     = "my-repo"
-}
-
 variable "branch_name" {
   description = "Name of the branch with the source code"
   default     = "master"
